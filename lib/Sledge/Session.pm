@@ -68,10 +68,12 @@ sub _transaction { }
 
 sub DESTROY {
     my $self = shift;
-    $self->_insert_me if $self->{_new};
-    $self->_update_me if !$self->{_new} && $self->{_changed};
-    $self->{_lock}->($self) if defined $self->{_lock};
-    $self->_commit;
+    if ($self->{_dbh}) {
+	$self->_insert_me if $self->{_new};
+	$self->_update_me if !$self->{_new} && $self->{_changed};
+	$self->{_lock}->($self) if defined $self->{_lock};
+	$self->_commit;
+    }
 }
 
 # developer APIs:

@@ -86,4 +86,18 @@ package Sledge::Exception::StorableSigMismatch;
 use base 'Sledge::Exception';
 sub description { 'Storable binary image mismatch' }
 
+# Sledge::Session::DBIFactory
+package Sledge::Exception::NoDriverName;
+use base 'Sledge::Exception';
+sub description { 'No driver match in DATASOURCE' }
+
+package Sledge::Exception::SessionBindClassError;
+use base 'Sledge::Exception';
+sub description { 'No Session implementation for Driver' }
+
+package Sledge::Exception::LoadingModuleError;
+use base 'Sledge::Exception';
+sub description { 'Error while loading module' }
+
+
 1;

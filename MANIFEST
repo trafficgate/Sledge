@@ -38,6 +38,7 @@ lib/Sledge/Request/Table.pm
 lib/Sledge/Request/Upload.pm
 lib/Sledge/Session.pm
 lib/Sledge/Session/DBI.pm
+lib/Sledge/Session/DBIFactory.pm
 lib/Sledge/Session/File.pm
 lib/Sledge/Session/MySQL.pm
 lib/Sledge/Session/Pg.pm
@@ -52,6 +53,7 @@ lib/Sledge/Template/TT.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
+META.yml			Module meta-data (added by MakeMaker)
 README
 t/00_compile.t
 t/01_testproj.t
@@ -97,6 +99,7 @@ t/51_sticky_query.t
 t/52_rewrite_query.t
 t/53_sessionmanager_any.t
 t/54_sessionfile.t
+t/55_session_factory.t
 t/baz.html
 t/lib/Sledge/TestPages.pm
 t/template/foo.html

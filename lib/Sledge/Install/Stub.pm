@@ -66,7 +66,7 @@ use Sledge::Pages::Compat;
 use Sledge::Authorizer::Null;
 use Sledge::Charset::Default;
 use Sledge::SessionManager::Cookie;
-use Sledge::Session::MySQL;
+use Sledge::Session::DBIFactory;
 use Sledge::Template::TT;
 
 use __PROJECT__::Config;
@@ -93,7 +93,7 @@ sub create_manager {
 
 sub create_session {
     my($self, $sid) = @_;
-    return Sledge::Session::MySQL->new($self, $sid);
+    return Sledge::Session::DBIFactory->new($self, $sid);
 }
 
 1;
