@@ -172,6 +172,6 @@ Pages クラスを継承して、create_authorizer をオーバーライドします。
 
 =head1 AUTHOR
 
-Tatsuhiko Miyagawa <miyagawa@edge.co.jp> with Sledge Developpers.
+Tatsuhiko Miyagawa <miyagawa@edge.co.jp> with Sledge development team.
 
 =cut

@@ -1,5 +1,6 @@
 Apache::Request
 Apache::Reload
+CGI 2.47
 Test::Inline
 Carp::Assert
 Class::Fields
@@ -15,6 +16,7 @@ HTML::Template
 HTML::StickyQuery
 IO::Stringy
 Jcode
+LWP
 Test::Simple
 Test::Harness
 Time::HiRes

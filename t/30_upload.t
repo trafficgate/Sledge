@@ -65,7 +65,8 @@ my $r = Sledge::Request::CGI->new($q);
     isa_ok $next, 'Sledge::Request::Upload';
     is $next->name, 'file2';
 
-    like $upload->tempname, qr|/tmp/|;
+    my $match = $ENV{TMPDIR} || '/tmp/';
+    like $upload->tempname, qr|$match|o;
 
     my $tmpfile = 't/.tmp';
     $upload->link($tmpfile);

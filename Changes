@@ -1,7 +1,15 @@
 Revision history for Perl extension Sledge
 $Id$
 
-1.10 Fri Feb 14 02:19:13 JST 2003
+1.11
+	- $TMPDIR をセットした際に t/30_upload.t が失敗するのを修正
+	  (Thanks to Hiroyuki Kobayashi)
+	- Bundle::Sledge is now on CPAN
+	- Makefile.PL simplified
+	- CGI 2.47 and LWP added on PREREQ_PM
+	  (Thanks to Masashi Seiki)
+
+1.10 Fri Feb 13 15:59:13 JST 2003
 	* Open Source Release!
 	- Sledge/Hammer.pm => Sledge.pm
 	- Edge::Config => Sledge::Config
