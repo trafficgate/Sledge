@@ -159,9 +159,15 @@ upload ファイルを扱うには
 
 =item A.
 
-mod_perl 環境, CGI 環境とも $self->r->upload('uploadname') でファイル
-ハンドルが取得できます。詳細は perldoc Apache::Request, perldoc CGI を
-みてください。
+mod_perl 環境, CGI 環境とも $self->r->upload('uploadname') でUpload オ
+ブジェクトが取得でき、そこから fh メソッドにてハンドルが取得できます。
+
+  my $upload = $self->r->upload('uploadfile');
+  $upload->link("/path/to/savefile");
+  my $fh = $upload->fh;
+  while (<$fh>) { do_something($fh); }
+
+詳細は perldoc Apache::Request, perldoc CGI をみてください。
 
 =item Q.
 
