@@ -26,3 +26,4 @@ Template
 Data::Properties
 Error 0.15
 Storable
+Encode::compat
