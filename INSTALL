@@ -1,0 +1,14 @@
+$Id$
+
+必須CPAN モジュールのインストール
+
+# ./eg/cpan_install.pl
+
+Sledge 基本モジュール群のインストール
+
+% perl Makefile.PL
+% make
+% make test
+# make install
+
+インストール後に必要な作業は lib/Sledge/Doc/Install.pod を参照してください。
