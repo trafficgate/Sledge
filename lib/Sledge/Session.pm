@@ -54,11 +54,6 @@ sub _gen_session_id {
     return substr(sha1_hex(gettimeofday . $unique), 0, $self->sid_length);
 }
 
-sub _prepare {
-    my($self, $sql) = @_;
-    return $self->{_dbh}->prepare_cached($sql);
-}
-
 sub _deserialize {
     my($self, $data) = @_;
     return Storable::thaw($data);

@@ -22,6 +22,11 @@ sub _connect_database {
     return $dbh;
 }
 
+sub _prepare {
+    my($self, $sql) = @_;
+    return $self->{_dbh}->prepare_cached($sql);
+}
+
 sub _commit {
     my $self = shift;
     if ($self->{_dbh} && $self->_transaction) {
