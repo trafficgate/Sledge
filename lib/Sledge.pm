@@ -33,14 +33,17 @@ Tatsuhiko Miyagawa with many help from (listed in alphabetically):
   Eijiro Koike
   Hideoki Yoshikawa
   Hiroyuki Kobayashi
+  Hiroyuki Oyama
   Kazuhiro Nakata
   Kensaku Fujiwara
   Makoto Hasegawa
+  Masashi Seiki
   Naoto Ishikawa
   Shinya Hayakawa
   Shohei Tsunoda
-  Taro Sakamoto
   Takahiro Ohmori
+  Takefumi Kimura
+  Taro Sakamoto
   Tomohiro Ikebe
   Toyoo Kobayashi
   Yoshiharu Matsushima
