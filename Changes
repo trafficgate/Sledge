@@ -8,7 +8,7 @@ $Id$
 	- Makefile.PL simplified
 	- CGI 2.47 and LWP added on PREREQ_PM
 	  (Thanks to Masashi Seiki)
-	* [Bug Fix] SessionManager::Rewrite: 初回アクセスのパラメータを保存しないバグ修正
+	* [Bug Fix] SessionManager::Rewrite: 初回アクセスのパラメータ保存 (hanabusa)
 
 1.10 Fri Feb 13 15:59:13 JST 2003
 	* Open Source Release!
@@ -20,19 +20,19 @@ $Id$
 	  コンテンツにフィルタリングを行うオブジェクトメソッド
 	* SessionManager::StickyQuery: mod_rewrite を使用しない SessionManager
 	* Session: $Sledge::Session::SessionIdLength でセッションIDの長さを設定
-	* [Bug Fix] Session::Pg: "SELECT ... FOR UPDATE" を追加
+	* [Bug Fix] Session::Pg: "SELECT ... FOR UPDATE" を追加 (toona)
 	* [Bug Fix] SessionManager::StickyQuery のパラメータ解釈のバグ修正
-	* [Bug Fix] SessionManager::StickyQuery が $SessionIdName を利用しないバグ修正
+	* [Bug Fix] SessionManager::StickyQuery が $SessionIdName を利用しないバグ修正 (toona)
 
 1.07 Fri Oct 25 15:47:44 JST 2002
 	* Session: cleanup() クラスメソッド追加
-	* Session::Pg に _do_cleanup 実装
+	* Session::Pg に _do_cleanup 実装 (ikebe)
 	* Content-Length を出力する set_content_length メソッド追加
-	* [Bug Fix] Session: expire() で LOCK が解放されないバグ修正
-	- Template::TT: hook をやめる。Plugin::Mail でも config/r/session が渡るように
-	- SessionManager::Rewrite: sid=$sid をパスの先頭につけるように
+	* [Bug Fix] Session: expire() で LOCK が解放されないバグ修正 (ikebe)
+	- Template::TT: hook をやめる。Plugin::Mail でも config/r/session が渡るように (hanabusa)
+	- SessionManager::Rewrite: sid=$sid をパスの先頭につけるように (dos, hideoki)
 	- [Minor] Pages::Base: テンプレートが見つからない際のエラー修正
-	- SessionManager::Rewrite: sid= を変更可能に ($SessionIdName 変数)
+	- SessionManager::Rewrite: sid= を変更可能に ($SessionIdName 変数) (dos)
 	* Charset::Default: s/x-euc-jp/euc-jp/
 	- Sledge::Pages 削除
 
@@ -51,9 +51,9 @@ $Id$
 	- Exception::Class を使わず Error.pm を利用する
 	  Exception クラス追加 (Error::Simple を継承)
 	* Registrar クラス (placeholder) 追加
-	  Registrar->context にて現在実行中の Pages オブジェクトを取得可能
+	  Registrar->context にて現在実行中の Pages オブジェクトを取得可能  (hayakawa)
 	- perl 5.6.1, 5.8.0 でも make test 通るように修正
-	- SessionManager: fixed typo
+	- SessionManager: fixed typo (hanabusa)
 
 1.05 Fri Aug 16 20:27:47 JST 2002
 	- eg/sessions.sql: a_session を mediumtext に
@@ -63,17 +63,17 @@ $Id$
 	  r, config, session をテンプレートにセットする
 
 1.04 Wed Jun 19 21:35:28 JST 2002
-	* [Bug Fix] finished(1) でも redirect する Bug 修正
+	* [Bug Fix] finished(1) でも redirect する Bug 修正 (ikebe)
 	* Session: current_url() を session に保存
 	* [new API] AFTER_OUTPUT hook 追加
-	* FillInForm: ignore_fields に対応
+	* FillInForm: ignore_fields に対応 (hanabusa)
 
 1.03 Sun Apr 28 03:41:46 JST 2002
 	* [Bug Fix]
-	  finished な状態でも post_dispatch_* を実行してしまう bug 修正
+	  finished な状態でも post_dispatch_* を実行してしまう bug 修正 (kurihara)
 	* [developer API change]
 	  send_http_header メソッドを定義。
-	* sub Sledge::Session::Expired::is_fresh { 0 }
+	* sub Sledge::Session::Expired::is_fresh { 0 } (kurihara)
 	* [Bug fix]
 	  SessionManager::Rewrite 最初のアクセスで QUERY_STRING を保存
 	* Template::TT 0.04
@@ -82,7 +82,7 @@ $Id$
 
 1.02 Thu Mar 28 06:42:23 JST 2002
 	* refactoring Session code
-	* Added Session::SQLite
+	* Added Session::SQLite (hayakawa, hideoki)
 	* guess_filename() が /./ を path に含む bug を修正
 	  File::Spec->canonpath() を利用
 
@@ -94,11 +94,11 @@ $Id$
 
 0.21 Wed Feb 27 18:36:23 JST 2002
 	* [API change] dispatch() 終了後のメソッドはすべて無視
-	* $self->load_fillin_form() if $self->is_post_request
+	* $self->load_fillin_form() if $self->is_post_request (milano, shohei, ats, hideoki)
 
 0.20 Mon Jan 28 23:50:56 JST 2002
 	- Session: security enhancement
-	  SHA1, UNIQUE_ID, Time::HiRes を使用する
+	  SHA1, UNIQUE_ID, Time::HiRes を使用する (hideoki)
 	  sid_length() をメソッドに
 	* Added SessionManager::Rewrite
 	- eg/sledge.conf: added rewrite sample
@@ -108,9 +108,9 @@ $Id$
           use prepare_cached()
 	* Added Session::DBI, Session::Pg
 	- Added default attributes for MySQL and Pg
-	- Transaction support for Pg
+	- Transaction support for Pg (ikebe)
 	* [Important Fix] Pages::CGI
-	  redirect() で Location 以外のヘッダが出力されないバグ修正
+	  redirect() で Location 以外のヘッダが出力されないバグ修正 (kurihara)
 
 0.19 Sun Jan 13 19:12:52 JST 2002
 	* Added Sledge::Request::Upload
@@ -127,10 +127,9 @@ $Id$
 
 0.17 Tue Jan  8 17:56:48 JST 2002
 	- Request::CGI: fixed bug in header_in()
-	* [API change] guess_filename の引数が / で始まる場合、
-	  仮想パスとして処理する
+	* [API change] guess_filename の引数が / で始まる場合、仮想パスとして処理する (hideoki)
 	- Doc::FAQ: output_content()
-	- Carp::confess in ABSTRACT METHOD
+	- Carp::confess in ABSTRACT METHOD (hideoki)
 	- Template: r を scalar context で評価
 	- guess_filename() で . を含む場合は .html を補完しない
 	* Added Request::Table and tests for it
@@ -143,7 +142,7 @@ $Id$
 	  Charset, Authorizer, SessionManager: add new() stub code
 	- Added cyclic_ref.t to detect memory leak
 	* [API change] Template: (add|set)_option を追加
-	- cpan_install.pl: check if uid == 0
+	- cpan_install.pl: check if uid == 0 (shohei)
 
 0.16 Wed Dec 26 15:09:17 JST 2001
 	- Added t/22_session.t t/23_session-mysql.t
@@ -166,17 +165,17 @@ $Id$
 
 0.14 Thu Dec 20 21:11:45 JST 2001
 	- Config.pm: SLEDGE_CONFIG_NAME が設定されていたら優先
-	- use Jcode in Charset::Shift_JIS
+	- use Jcode in Charset::Shift_JIS (dos)
 	- Doc::FAQ: mod_perl で Singleton 問題を回避する方法を追記
 
 0.13 Mon Dec 10 16:00:18 JST 2001
 	* current_url() Bug fix
-	* [API change] redirect($url, $scheme)
+	* [API change] redirect($url, $scheme) (shohei)
 	- Doc::FAQ update
-	- CGI->new({}) in test fix
+	- CGI->new({}) in test fix (shohei)
 
 0.12 Fri Nov 30 18:07:43 JST 2001
-	* [API change] session->expire 追加
+	* [API change] session->expire 追加 (shohei)
 
 0.11 Wed Nov 28 16:37:26 JST 2001
 	* Log::Dispatch::Config を利用
@@ -187,7 +186,7 @@ $Id$
 0.10 Sat Nov 17 15:01:58 JST 2001
 	
 0.09 Fri Nov 16 19:58:46 JST 2001
-	* Constants.pm  追加
+	* Constants.pm  追加 (ikebe)
 	* Pages::LoadHooks 追加
 	- after_dispatch を deprecated method にした
 	- doc/hooks.pod 追加
@@ -195,10 +194,10 @@ $Id$
 0.08 Thu Nov 15 10:10:38 JST 2001
 	* Apache::Cookie つかわない
 	- added Charset::Shift_JIS 
-	- SessionManager bugfix
+	- SessionManager bugfix (fujiwara)
 	- Charset::Shift_JIS の名前空間修正
-	- Pages::Apache で param() をまず呼ぶ
-	* before_dispatch 追加
+	- Pages::Apache で param() をまず呼ぶ (fujiwara)
+	* before_dispatch 追加 (ikebe)
 	
 0.07 Fri Nov  9 13:46:20 JST 2001
 	* Request::CGI の uri() を修正
@@ -230,7 +229,7 @@ $Id$
 	- cpan_install.pl にモジュール追加
 	* Pages::{Base,Apache,CGI} の追加
 	- Pages は thin wrapper に
-	* Request::CGI の追加
+	* Request::CGI の追加  (shohei)
 	* SessionManager::Cookie{Apache,CGI} 追加
 	- SessionManager::Cookie は thin wrapper に
 	* sledge-setup で Getopt::Long 使用
@@ -238,9 +237,9 @@ $Id$
 
 0.02 Sun Sep 16 01:42:29 JST 2001
 	* faq.pod に Template, FillInForm 追加
-	* if POST を load_fillin_form の外に
+	* if POST を load_fillin_form の外に (kobayasi)
 	* Template 追加
-	* FillInForm 追加
+	* FillInForm 追加 (kobayasi)
 	- 上記の unit test 追加
 	* 自動生成は Pages と Config のみ
 	* ABSTRACT METHOD で Carp::croak を使うようにした
@@ -248,12 +247,12 @@ $Id$
 	* faq.pod にトラブルシューティング追加
 	* faq.pod, TODO に Config + Singleton 問題を追加
 	* tutorial.pod に Cookie での Authorize 実装を追加
-	- Class::Virtual に依存しない
+	- Class::Virtual に依存しない (kurihara)
 	* cpan_install.pl に Class::Singleton 追加
 	* $DEBUG 追加
 	* shift なしの new() で動作するようにした
 	* t/01_testproj.t の追加 (requires File::Temp)
-	* Config の廃止
+	* Config の廃止 (shohei)
 	* sledge-setup でバックアップをつくるように
 	* Document update
 	* eg/ ディレクトリの追加
