@@ -44,6 +44,7 @@ sub create_session {
 
 sub dispatch {
     my $self = shift;
+    CGI::initialize_globals();
     tie *STDOUT, 'IO::Scalar', \my $out;
     $self->SUPER::dispatch(@_);
     untie *STDOUT;
