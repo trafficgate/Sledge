@@ -71,3 +71,43 @@ sub _mtime { (stat(shift))[9] }
 1;
 
 __END__
+
+=head1 NAME
+
+Sledge::Session::File - file-based Session storage
+
+=head1 SYNOPSIS
+
+  package Proj::Pages;
+  use Sledge::Session::File;
+
+  sub create_session {
+      my($self, $sid) = @_;
+      return Sledge::Session::File->new($self, $sid);
+  }
+
+  # in Config
+  $C{SESSION_DIR} = "/path/to/session_dir";
+
+=head1 DESCRIPTION
+
+Sledge::Session::File is a Session implementation that uses flat-file
+to save session data in. file name is Session ID, modified time is
+mtime and session data is serialized into flat-file using Storable.
+
+=head1 AUTHOR
+
+Tomohiro Ikebe E<lt>ikebe@livedoor.jpE<gt>
+
+Tatsuhiko Miyagawa E<lt>miyagawa@livedoor.jpE<gt>
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Sledge.
+
+=head1 SEE ALSO
+
+L<Sledge>
+
+=cut
