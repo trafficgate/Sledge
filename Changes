@@ -1,7 +1,7 @@
 Revision history for Perl extension Sledge
 $Id$
 
-1.10
+1.10 Fri Feb 14 02:19:13 JST 2003
 	* Open Source Release!
 	- Sledge/Hammer.pm => Sledge.pm
 	- Edge::Config => Sledge::Config
