@@ -23,7 +23,7 @@ sub import {
 
 sub redirect_filter {
     my($self, $path, $scheme) = @_;
-    my $super = ref($self) . "::SUPER::redirect";
+    my $super = 'Sledge::Pages::Base::redirect';
     if ($path =~ /^http/) {
 	# redirect to other server!
 	return $self->$super($path, $scheme);

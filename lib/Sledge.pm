@@ -8,7 +8,7 @@ package Sledge;
 use strict;
 use vars qw($VERSION $CODENAME);
 
-$VERSION  = "1.10";
+$VERSION  = "1.11";
 $CODENAME = "The Next Big Thing";
 
 sub handler {
@@ -22,7 +22,7 @@ __END__
 
 =head1 NAME
 
-Sledge - Opensource Web Application Framework
+Sledge - Open Source Web Application Framework in Perl
 
 =head1 AUTHORS
 
@@ -36,6 +36,7 @@ Tatsuhiko Miyagawa with many help from (listed in alphabetically):
   Hiroyuki Oyama
   Kazuhiro Nakata
   Kensaku Fujiwara
+  Ko-hei Ohtsuka
   Makoto Hasegawa
   Masashi Seiki
   Naoto Ishikawa

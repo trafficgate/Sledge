@@ -1,11 +1,5 @@
-Changes
-INSTALL
-LICENSE
-MANIFEST			This list of files
-Makefile.PL
-README
-TODO
 bin/sledge-setup
+Changes
 eg/cpan_install.pl
 eg/prereq-modules
 eg/session-bench.pl
@@ -13,6 +7,7 @@ eg/sessions-pg.sql
 eg/sessions.sql
 eg/sledge-conf.pl
 eg/sledge.conf
+INSTALL
 lib/Sledge.pm
 lib/Sledge/Authorizer.pm
 lib/Sledge/Authorizer/Null.pm
@@ -20,6 +15,7 @@ lib/Sledge/Charset.pm
 lib/Sledge/Charset/Default.pm
 lib/Sledge/Charset/Null.pm
 lib/Sledge/Charset/Shift_JIS.pm
+lib/Sledge/Charset/UTF8.pm
 lib/Sledge/Config.pm
 lib/Sledge/Constants.pm
 lib/Sledge/Doc/FAQ.pod
@@ -42,15 +38,21 @@ lib/Sledge/Request/Table.pm
 lib/Sledge/Request/Upload.pm
 lib/Sledge/Session.pm
 lib/Sledge/Session/DBI.pm
+lib/Sledge/Session/File.pm
 lib/Sledge/Session/MySQL.pm
 lib/Sledge/Session/Pg.pm
 lib/Sledge/Session/SQLite.pm
 lib/Sledge/SessionManager.pm
+lib/Sledge/SessionManager/Any.pm
 lib/Sledge/SessionManager/Cookie.pm
 lib/Sledge/SessionManager/Rewrite.pm
 lib/Sledge/SessionManager/StickyQuery.pm
 lib/Sledge/Template.pm
 lib/Sledge/Template/TT.pm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+README
 t/00_compile.t
 t/01_testproj.t
 t/02_template.t
@@ -93,6 +95,8 @@ t/49_content-length.t
 t/50_content_filter.t
 t/51_sticky_query.t
 t/52_rewrite_query.t
+t/53_sessionmanager_any.t
+t/54_sessionfile.t
 t/baz.html
 t/lib/Sledge/TestPages.pm
 t/template/foo.html
@@ -104,3 +108,4 @@ t/template/sticky_test.html
 t/template/test.html
 t/template/test_baz.html
 t/upload.txt
+TODO

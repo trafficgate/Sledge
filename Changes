@@ -1,7 +1,7 @@
-Revision history for Perl extension Sledge
+Revision history for Sledge
 $Id$
 
-1.11
+1.11 Tue Feb 24 17:47:56 JST 2004
 	- $TMPDIR をセットした際に t/30_upload.t が失敗するのを修正
 	  (Thanks to Hiroyuki Kobayashi)
 	- Bundle::Sledge is now on CPAN
@@ -10,7 +10,11 @@ $Id$
 	  (Thanks to Masashi Seiki)
 	* [Bug Fix] SessionManager::Rewrite: 初回アクセスのパラメータ保存 (hanabusa)
 	- [Refactoring] move _prepare() from Session.pm to Session::DBI
-	- Add DESTROY { } in Request/CGI.pm
+	- Added DESTROY { } in Request/CGI.pm
+	* Added Charset::UTF8
+	* [Bug Fix] SessionManager::Rewrite: 初回アクセス時のクエリーを保存しないバグ修正 (hanabusa)
+	* Added Sledge::Session::File
+	* Added Sledge::SessionManager::Any
 
 1.10 Fri Feb 13 15:59:13 JST 2003
 	* Open Source Release!

@@ -19,8 +19,12 @@ sub get_session_id {
 
 sub set_session_id {
     my($self, $page, $sid) = @_;
-    unless ($page->r->uri =~ m@/$SessionIdName=.*/@) {
-	$page->redirect($self->add_sid($page, $sid));
+    my $uri = $page->r->uri;
+    if ($uri =~ s@/$SessionIdName=[^/]+/@/$SessionIdName=$sid/@) {
+	$uri .= "?". scalar($page->r->args) if length($page->r->args);
+        $page->redirect($uri);
+    } else {
+        $page->redirect($self->add_sid($page, $sid));
     }
 }
 
