@@ -50,7 +50,7 @@ sub do_request        { Sledge::Exception::DeprecatedMethod->throw }
 sub send_content      { Sledge::Exception::DeprecatedMethod->throw }
 
 # Formerly implemented via LoadHooks
-use Class::Trigger qw(AFTER_INIT BEFORE_DISPATCH AFTER_DISPATCH AFTER_OUTPUT);
+use Class::Trigger qw(BEFORE_INIT AFTER_INIT BEFORE_DISPATCH AFTER_DISPATCH AFTER_OUTPUT);
 
 *register_hook = \&add_trigger;
 *invoke_hook   = \&call_trigger;
@@ -58,6 +58,7 @@ use Class::Trigger qw(AFTER_INIT BEFORE_DISPATCH AFTER_DISPATCH AFTER_OUTPUT);
 sub new {
     my $class = shift;
     my $self = bless {}, $class;
+    $self->invoke_hook('BEFORE_INIT');
     $self->init(@_);
     $self->invoke_hook('AFTER_INIT');
     return $self;
