@@ -39,6 +39,7 @@ Tatsuhiko Miyagawa with many help from (listed in alphabetically):
   Makoto Hasegawa
   Masashi Seiki
   Naoto Ishikawa
+  Satoshi Tanimoto
   Shinya Hayakawa
   Shohei Tsunoda
   Takahiro Ohmori
