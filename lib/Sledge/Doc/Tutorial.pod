@@ -115,9 +115,6 @@ dispatch('foo') で、foo.html 以外をロードしたい場合は、load_template()
 
   $self->load_template('bar');
 
-ここではじめて C<$self-E<gt>tmpl> が切り替わるので、それまでに実行した 
-C<$self-E<gt>tmpl-E<gt>param()> は効果がないことに注意してください。
-
 =head2 AUTHORIZATION
 
 「このコンテンツは誰でも見れる、このコンテンツはログインしてないと見れ
