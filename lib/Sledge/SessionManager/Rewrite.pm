@@ -26,7 +26,9 @@ sub set_session_id {
 
 sub add_sid {
     my($self, $page, $sid) = @_;
-    return sprintf '/%s=%s%s', $SessionIdName, $sid, $page->r->uri;
+    my $args = $page->r->args;
+    return sprintf '/%s=%s%s%s', $SessionIdName, $sid, $page->r->uri,
+	length($args) ? "?$args" : '';
 }
 
 1;

@@ -13,9 +13,9 @@ use Sledge::Charset::Default;
 use Sledge::Template::TT;
 use IO::Scalar;
 
-$ENV{HTTP_HOST}        = 'localhost';
-$ENV{REQUEST_URI} = 'http://localhost/';
-$ENV{QUERY_STRING}     = '';
+$ENV{HTTP_HOST}    = 'localhost';
+$ENV{REQUEST_URI}  = '/';
+$ENV{QUERY_STRING} = '';
 
 sub create_authorizer {
     my $self = shift;

@@ -8,6 +8,7 @@ $Id$
 	- Makefile.PL simplified
 	- CGI 2.47 and LWP added on PREREQ_PM
 	  (Thanks to Masashi Seiki)
+	* [Bug Fix] SessionManager::Rewrite: 初回アクセスのパラメータを保存しないバグ修正
 
 1.10 Fri Feb 13 15:59:13 JST 2003
 	* Open Source Release!

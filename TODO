@@ -8,6 +8,7 @@ $Id$
 [Enhancement]
 * More Document
 * More Samples
+* Install.pm のパッチとりこみ
 * $r->upload->link() を portable に
 * redirect() の先頭に固定パスを付加できるように
 * ページに論理名をつける forward() メソッドを実装
@@ -17,7 +18,13 @@ $Id$
 [Plugins]
 * Dispatcher の公開
 * Plugin::Validation の公開とAPI強化
-* Plugin::UnderMaintenance メンテナンス中画面
-* Plugin::Token ページ遷移強制
-* Plugin::Payment 決済遷移プラグイン (Business::OnlinePayment ラッパー)
+* Plugin::Maintenance (メンテナンス中画面)
+* Plugin::Token (ページ遷移強制)
+* Plugin::Payment (決済遷移プラグイン Business::OnlinePayment?)
+* Plugin::PAR (Apache::PAR 対応)
+* Plugin::FormMail
+* Plugin::XMLXSLT (XML-XSLT変換)
+* Plugin::CMS (簡易CMSシステム)
+* Plugin::Wiki (WikiWikiWeb)
+* Plugin::Blog (Weblog)
 
