@@ -51,7 +51,7 @@ sub output {
     my $template = Template->new(\%config);
     unless (-e $input) {
 	Sledge::Exception::TemplateNotFound->throw(
-	    'No template file detected. Check your template path.',
+	    "No template file detected: $input",
 	);
     }
     $template->process($input, $self->{_params}, \my $output)

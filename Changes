@@ -3,6 +3,9 @@ $Id$
 
 1.12
 	* Added Session::DBIFactory (auto-dispatch of Session Driver)
+	* Added SessionManager::Null (Thanks to Masaki SEIKI)
+	  Added tests suite for SessionManager::Null
+	* Fixed error message by Template::TT
 
 1.11 Tue Feb 24 17:47:56 JST 2004
 	- $TMPDIR をセットした際に t/30_upload.t が失敗するのを修正
