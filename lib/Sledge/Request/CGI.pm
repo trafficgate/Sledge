@@ -96,6 +96,8 @@ sub param {
     $self->query->param(@_);
 }
 
+sub DESTROY { }
+
 sub AUTOLOAD {
     my $self = shift;
     (my $meth = $AUTOLOAD) =~ s/.*:://;
