@@ -13,6 +13,7 @@ Sledge の Hook の利用法について解説しています。
   AFTER_INIT
   BEFORE_DISPATCH
   AFTER_DISPATCH
+  AFTER_OUTPUT
 
 =head1 REGISTERING HOOKS
 
