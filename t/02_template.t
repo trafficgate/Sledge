@@ -58,6 +58,7 @@ use Sledge::Template;
     $page->tmpl->add_option(bar => 'baz');
     $page->tmpl->set_option(r => 'r');
 
+    no warnings 'redefine';
     local *HTML::Template::new = sub {
 	my($self, %args) = @_;
 	is_deeply $args{foo}, [ 'bar', 'baz' ];

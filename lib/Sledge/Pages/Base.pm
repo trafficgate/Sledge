@@ -76,6 +76,7 @@ sub dispatch {
     my($self, $page) = @_;
     return if $self->finished; # already redirected?
 
+    no warnings 'redefine';
     local *Sledge::Registrar::context = sub { $self };
     Sledge::Exception->do_trace(1) if $self->debug_level;
     eval {

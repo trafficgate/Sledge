@@ -49,7 +49,7 @@ sub output {
     my %config = %{$self->{_options}};
     my $input  = delete $config{filename};
     my $template = Template->new(\%config);
-    unless (-e $input) {
+    unless (ref($input) || -e $input) {
 	Sledge::Exception::TemplateNotFound->throw(
 	    "No template file detected: $input",
 	);

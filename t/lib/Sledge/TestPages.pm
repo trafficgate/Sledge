@@ -55,7 +55,11 @@ sub dispatch {
 sub output { shift->{output} }
 
 package Sledge::TestConfig;
-use vars qw($AUTOLOAD);
+use vars qw($AUTOLOAD $DefaultVars);
+
+$DefaultVars = {
+    COOKIE_NAME => "sledge_sid",
+};
 
 sub new {
     my($class, $proto) = @_;
@@ -69,7 +73,9 @@ sub AUTOLOAD {
     my $pkg = $self->{pkg};
     (my $method = $AUTOLOAD) =~ s/.*://;
     no strict 'refs';
-    my $val = ${"$pkg\::" . uc($method)};
+    my $glob = *{"$pkg\::" . uc($method)}{SCALAR};
+    my $val = defined($$glob) ? ${"$pkg\::" . uc($method)}
+	: $DefaultVars->{uc($method)};
     return (ref($val) eq 'ARRAY' && wantarray) ? @$val : $val;
 }
 

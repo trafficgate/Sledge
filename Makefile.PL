@@ -3,6 +3,7 @@ use ExtUtils::MakeMaker;
 use FileHandle;
 
 check_version();
+check_warnings_pm();
 
 my %prereq = read_prereq();
 
@@ -17,6 +18,23 @@ sub read_prereq {
     my $handle  = FileHandle->new("eg/prereq-modules");
     my %modules = map { chomp; my($mod, $ver) = split / /; ($mod, $ver || 0) } $handle->getlines;
     return %modules;
+}
+
+sub check_warnings_pm {
+    my $file = "lib/warnings.pm";
+    if ($] < 5.006) {
+	open OUT, ">$file";
+	print OUT <<MOD;
+package warnings;
+sub import { }
+sub unimport { }
+1;
+MOD
+    ;
+        close OUT;
+    } else {
+        unlink $file if -e $file;
+    }
 }
 
 sub check_version {

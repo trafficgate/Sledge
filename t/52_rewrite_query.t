@@ -36,6 +36,7 @@ package main;
     $ENV{QUERY_STRING} = "id=1";
 
     # no session id: should redirect
+    no warnings 'redefine';
     local *Mock::Pages::redirect = sub {
 	my($self, $uri) = @_;
 	my $sid = ($uri =~ qr!/sid=(.*?)/!)[0];

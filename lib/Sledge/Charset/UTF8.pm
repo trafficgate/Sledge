@@ -8,13 +8,20 @@ package Sledge::Charset::UTF8;
 use strict;
 use base qw(Sledge::Charset::Null);
 
-use Encode::compat; # for 5.6
-use Encode;
+my($decode, $encode);
+BEGIN {
+    if ($] >= 5.006) {
+	require Encode::compat; # for 5.6 with Text::Iconv
+	require Encode;
+	$decode = sub { Encode::decode("UTF-8", shift) };
+	$encode = sub { Encode::encode("UTF-8", shift) };
+    }
+}
 
 sub convert_param {
     my($self, $page) = @_;
     for my $p ($page->r->param) {
-	my @v = map decode("UTF-8", $_), $page->r->param($p);
+	my @v = map $decode->($_), $page->r->param($p);
 	$page->r->param($p => \@v);
     }
     return;
@@ -26,7 +33,7 @@ sub content_type {
 
 sub output_filter {
     my($self, $content) = @_;
-    return encode("UTF-8", $content);
+    return $encode->($content);
 }
 
 1;

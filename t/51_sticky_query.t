@@ -44,6 +44,7 @@ package main;
 
 {
     no strict qw(refs);
+    no warnings 'redefine';
     local *Sledge::Pages::Base::redirect = sub{
 	my ($self, $path, $scheme) = @_;
 	like $path, qr/^hoge\?foo=bar&baz=baz&sid=\w+$/;
