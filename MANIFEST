@@ -4,6 +4,7 @@ LICENSE
 MANIFEST			This list of files
 Makefile.PL
 README
+TODO
 bin/sledge-setup
 eg/cpan_install.pl
 eg/prereq-modules
@@ -24,6 +25,7 @@ lib/Sledge/Constants.pm
 lib/Sledge/Doc/FAQ.pod
 lib/Sledge/Doc/Hooks.pod
 lib/Sledge/Doc/Install.pod
+lib/Sledge/Doc/Overview.pod
 lib/Sledge/Doc/Tutorial.pod
 lib/Sledge/Exception.pm
 lib/Sledge/Exceptions.pm
