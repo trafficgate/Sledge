@@ -2,7 +2,7 @@ $Id$
 
 必須CPAN モジュールのインストール
 
-# ./eg/cpan_install.pl
+# perl -MCPAN -e 'install Bundle::Sledge'
 
 Sledge 基本モジュール群のインストール
 
