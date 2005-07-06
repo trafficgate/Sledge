@@ -209,7 +209,7 @@ sub add_filter {
     my($self, $sub) = @_;
     unless (ref($sub) eq 'CODE') {
 	require Carp;
-	Carp::croak("add_filter() meeds coderef");
+	Carp::croak("add_filter() needs coderef");
     }
     push @{$self->{filters}}, $sub;
 }
