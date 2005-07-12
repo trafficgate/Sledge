@@ -36,7 +36,7 @@ sub _load_session {
 
     # no sid; generate it
     unless ($self->{_sid}) {
-	$self->{_sid} = $self->_gen_session_id;
+	$self->{_sid} = $self->_gen_session_id($page);
 	$self->{_new} = 1;
     }
 
