@@ -56,12 +56,15 @@ use Sledge::Template;
     $page->tmpl->add_option(foo => 'bar');
     $page->tmpl->add_option(foo => 'baz');
     $page->tmpl->add_option(bar => 'baz');
+    $page->tmpl->add_option(hoge => { aaa => 1 });
+    $page->tmpl->add_option(hoge => { bbb => 2 });
     $page->tmpl->set_option(r => 'r');
 
     no warnings 'redefine';
     local *HTML::Template::new = sub {
 	my($self, %args) = @_;
 	is_deeply $args{foo}, [ 'bar', 'baz' ];
+        is_deeply $args{hoge}, { aaa => 1, bbb => 2 };
 	is $args{bar}, 'baz';
 	is $args{r}, 'r';
 	die 'dummy';
