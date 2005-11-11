@@ -80,7 +80,10 @@ sub add_option {
 	if (! exists $self->{_options}->{$key}) {
 	    $self->{_options}->{$key} = $val;
 	}
-	elsif (ref $self->{_options}->{$key} eq 'ARRAY') {
+        elsif (ref $self->{_options}->{$key} eq 'HASH') {
+	    $self->{_options}->{$key} = {%{$self->{_options}->{$key}}, %{$val}};
+	}
+        elsif (ref $self->{_options}->{$key} eq 'ARRAY') {
 	    push @{$self->{_options}->{$key}}, $val;
 	}
 	else {
